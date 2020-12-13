@@ -1,10 +1,11 @@
 const express = require("express");
 const products = require("./data/products");
+const dotenv = require("dotenv").config();
 
 // Initialise app variable
 const app = express();
 
-const PORT = 5000 || process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
 	res.send("Home Page");
@@ -19,4 +20,8 @@ app.get("/api/products/:id", (req, res) => {
 	res.json(product);
 });
 
-app.listen(PORT, () => console.log(`Server has been started on ${PORT}`));
+app.listen(PORT, () =>
+	console.log(
+		`Server has been started in ${process.env.NODE_ENV} mode on port ${PORT}`
+	)
+);
