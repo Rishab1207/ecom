@@ -1,11 +1,15 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
 const products = require("./data/products.js");
+const connectDB = require("./config/db");
 
 // Initialise app variable
 const app = express();
 
 const PORT = process.env.PORT || 5000;
+
+// Connect to the database
+connectDB();
 
 app.get("/", (req, res) => {
 	res.send("Home Page");
