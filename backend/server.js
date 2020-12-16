@@ -1,6 +1,6 @@
 const express = require("express");
-const products = require("./data/products");
 const dotenv = require("dotenv").config();
+const products = require("./data/products.js");
 
 // Initialise app variable
 const app = express();
