@@ -96,9 +96,12 @@ const orderSchema = new mongoose.Schema(
 			required: true,
 			default: false,
 		},
+		deliveredAt: {
+			type: Date,
+		},
 	},
 	{
-		timeStamps: true,
+		timestamps: true,
 	}
 );
 
