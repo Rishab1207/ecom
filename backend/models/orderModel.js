@@ -58,7 +58,7 @@ const orderSchema = new mongoose.Schema(
 			id: {
 				type: String,
 			},
-			Status: {
+			status: {
 				type: String,
 			},
 			update_time: {
