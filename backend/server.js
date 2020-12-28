@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const connectDB = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 // Initialise app variable
 const app = express();
@@ -17,6 +18,9 @@ app.get("/", (req, res) => {
 
 // Product Route Middleware
 app.use("/api/products", productRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(PORT, () =>
 	console.log(
