@@ -2,10 +2,14 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const connectDB = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
+const userRoutes = require("./routes/userRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 // Initialise app variable
 const app = express();
+
+// Use body-parser middleware - it allows the server to accept the json data
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
@@ -18,6 +22,7 @@ app.get("/", (req, res) => {
 
 // Product Route Middleware
 app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
