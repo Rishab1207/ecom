@@ -3,6 +3,7 @@ const dotenv = require("dotenv").config();
 const connectDB = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 // Initialise app variable
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 // Product Route Middleware
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/order", orderRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
